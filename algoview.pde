@@ -11,7 +11,7 @@ boolean wait = true;
 
 void setup() {
   size(640, 480);
-  frameRate(60);
+  frameRate(9999);
   background(0);
   noStroke();
 
@@ -22,14 +22,14 @@ void setup() {
   osci.play();
   
   visualizer = new ArrayVisualizer(0, 0, width, height, test, osci);
-  visualizer.withAlgorithm(new BubbleSort());
+  visualizer.withAlgorithm(new SelectionSort());
   visualizer.draw();
 }
 
 void draw() {
   if (wait) {
       delay(1000);
-      osci.amp(0.3);
+      osci.amp(0.05);
       wait = false;
   }
   background(0);

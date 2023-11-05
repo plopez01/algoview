@@ -1,5 +1,5 @@
 interface Algorithm {
-  void setup(ArrayList<Integer> array);
-  void iterate(ArrayVisualizer v, SqrOsc osc);
+  void setup(ArrayVisualizer v, SqrOsc osc);
+  void iterate();
   void printInfo();
 }
