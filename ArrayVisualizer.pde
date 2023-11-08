@@ -53,7 +53,7 @@ class ArrayVisualizer { //<>//
   int setAtPointer(int pointer, int offset, int value) {
     return array.set(pointers.get(pointer).index + offset, value);
   }
-  
+
   void addPointer(Pointer pointer) {
     pointers.add(pointer);
   }
@@ -92,7 +92,7 @@ class ArrayVisualizer { //<>//
 
       if (mode == 0) {
         boolean found = false;
-        
+
         for (Pointer pointer : pointers) {
           if (i == pointer.index) {
             fill(pointer.c);
@@ -100,19 +100,16 @@ class ArrayVisualizer { //<>//
             break;
           }
         }
-        
+
         if (!found) fill(255);
-        
-        if (mode >= 1) {
-          // Algorithm end pass mode
-          if (i <= internalPtr.index) fill(0, 255, 0);
-          else fill(255);
-        }
-        
-        rect(xOffset, height, barWidth, -barHeight);
+      } else if (mode >= 1) {
+        // Algorithm end pass mode
+        if (i <= internalPtr.index) fill(0, 255, 0);
+        else fill(255);
       }
+      rect(xOffset, height, barWidth, -barHeight);
     }
-    
+
     if (algorithm != null) algorithm.printInfo();
   }
 }
