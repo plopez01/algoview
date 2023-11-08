@@ -9,9 +9,11 @@ SqrOsc osci;
 
 boolean wait = true;
 
+int targetFrameRate = 60;
+
 void setup() {
   size(640, 480);
-  frameRate(1);
+  frameRate(targetFrameRate);
   background(0);
   noStroke();
 
@@ -39,5 +41,11 @@ void draw() {
   
   visualizer.draw();
   
-  text("FPS: " + round(frameRate), 0, 10);
+  text("FPS: " + round(frameRate) + " (" + targetFrameRate + ")", 0, 10);
+}
+
+void mouseWheel(MouseEvent event){
+  targetFrameRate += event.getCount()*2;
+  if (targetFrameRate < 1) targetFrameRate = 1;
+  frameRate(targetFrameRate);
 }
