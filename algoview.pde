@@ -11,7 +11,7 @@ boolean wait = true;
 
 void setup() {
   size(640, 480);
-  frameRate(1);
+  //frameRate(1);
   background(0);
   noStroke();
 

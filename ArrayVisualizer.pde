@@ -111,8 +111,8 @@ class ArrayVisualizer { //<>//
         
         rect(xOffset, height, barWidth, -barHeight);
       }
-
-      //if (algorithm != null) algorithm.printInfo();
     }
+    
+    if (algorithm != null) algorithm.printInfo();
   }
 }
