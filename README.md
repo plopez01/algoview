@@ -1,6 +1,5 @@
 # algoview
 A niche extensible sorting algorithm visualizer.  
-![Selection sort](https://s5.gifyu.com/images/S8AmC.gif)  
 
 ## How do I run it?
 You are gonna need to download [Processing](https://processing.org/).  
