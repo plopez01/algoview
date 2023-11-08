@@ -4,9 +4,12 @@ class BubbleSort implements Algorithm {
   
   ArrayVisualizer v;
   SqrOsc osci;
+  Pointer primary = new Pointer(0, color(255, 0, 0));
   void setup(ArrayVisualizer v, SqrOsc osci) {
     this.v = v;
     this.osci = osci;
+    
+    v.addPointer(primary);
   }
 
   void iterate() {
@@ -17,21 +20,21 @@ class BubbleSort implements Algorithm {
     
     comparisons += 4;
     
-    if (v.primaryIndex + 1 < v.getArraySize() - sorted) {
-      osci.freq(v.getAtPrimary());
-      int a = v.getAtPrimary();
-      int b = v.getAtPrimary(1);
+    if (primary.index + 1 < v.getArraySize() - sorted) {
+      osci.freq(v.getAtPointer(0));
+      int a = v.getAtPointer(0);
+      int b = v.getAtPointer(0, 1);
       
       if (a > b) {
         // Swap
-        osci.freq(v.getAtPrimary(1));
-        v.setAtPrimary(b);
-        v.setAtPrimary(a, 1);
+        osci.freq(v.getAtPointer(0, 1));
+        v.setAtPointer(0, b);
+        v.setAtPointer(0, a, 1);
       }
 
-      v.primaryIndex++;
+      primary.index++;
     } else {
-      v.primaryIndex = 0;
+      primary.index = 0;
       sorted++;
     }
   }

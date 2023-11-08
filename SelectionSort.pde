@@ -3,56 +3,61 @@ class SelectionSort implements Algorithm {
   int minPos;
   int comparisons = 0;
   
-  
   ArrayVisualizer v;
   SqrOsc osci;
+  Pointer primary = new Pointer(0, color(255, 0, 0));
+  Pointer secondary = new Pointer(1, color(0, 0, 255));
+  
   void setup(ArrayVisualizer v, SqrOsc osci) {
     this.v = v;
     this.osci = osci;
     
-    v.secondaryIndex = v.primaryIndex;
-    minVal = v.getAtPrimary();
-    minPos = v.primaryIndex;
+    v.addPointer(primary);
+    v.addPointer(secondary);
+    
+    secondary.index = primary.index;
+    minVal = v.getAtPointer(0);
+    minPos = primary.index;
   }
   
   void iterate() {
-    if (v.primaryIndex >= v.getArraySize() - 1) {
+    if (primary.index >= v.getArraySize() - 1) {
       v.stop();
       return;
     }
     
     comparisons += 3;
     
-    if (v.secondaryIndex < v.getArraySize()) {
+    if (secondary.index < v.getArraySize()) {
       
       // Search for smallest value
-      int secondaryVal = v.getAtSecondary();
+      int secondaryVal = v.getAtPointer(1);
       osci.freq(secondaryVal);
       
       if (secondaryVal < minVal) {
         minVal = secondaryVal;
-        minPos = v.secondaryIndex;
+        minPos = secondary.index;
       }
       
-      v.secondaryIndex++;
+      secondary.index++;
     } else {
       // Swap elements
-      osci.freq(v.getAtPrimary());
-      v.swapElements(v.primaryIndex, minPos);
+      osci.freq(v.getAtPointer(0));
+      v.swapElements(primary.index, minPos);
       
-      v.primaryIndex++;
+      primary.index++;
       
       // Set new min value and advance secondary to save one comparison with ouselves
-      v.secondaryIndex = v.primaryIndex;
-      minVal = v.getAtSecondary();
-      minPos = v.secondaryIndex;
+      secondary.index = primary.index;
+      minVal = v.getAtPointer(1);
+      minPos = secondary.index;
       
-      v.secondaryIndex++;
+      secondary.index++;
     }
   }
   
   void printInfo() {
-    text("Remaining Elements: " + str(v.getArraySize() - v.primaryIndex), 0, 20);
+    text("Remaining Elements: " + str(v.getArraySize() - primary.index), 0, 20);
     text("Comparisons: " + str(comparisons), 0, 30);
   }
 }
