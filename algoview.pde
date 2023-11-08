@@ -22,7 +22,7 @@ void setup() {
   osci.play();
   
   visualizer = new ArrayVisualizer(0, 0, width, height, test, osci);
-  visualizer.withAlgorithm(new SelectionSort());
+  visualizer.withAlgorithm(new BubbleSort());
   visualizer.draw();
 }
 

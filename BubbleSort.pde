@@ -29,7 +29,7 @@ class BubbleSort implements Algorithm {
         // Swap
         osci.freq(v.getAtPointer(0, 1));
         v.setAtPointer(0, b);
-        v.setAtPointer(0, a, 1);
+        v.setAtPointer(0, 1, a);
       }
 
       primary.index++;
