@@ -1,14 +1,14 @@
 class BubbleSort implements Algorithm {
   int sorted = 0;
   int comparisons = 0;
-  
+
   ArrayVisualizer v;
   SqrOsc osci;
   Pointer primary = new Pointer(0, color(255, 0, 0));
   void setup(ArrayVisualizer v, SqrOsc osci) {
     this.v = v;
     this.osci = osci;
-    
+
     v.addPointer(primary);
   }
 
@@ -17,19 +17,19 @@ class BubbleSort implements Algorithm {
       v.stop();
       return;
     }
-    
+
     comparisons += 4;
-    
+
     if (primary.index + 1 < v.getArraySize() - sorted) {
-      osci.freq(v.getAtPointer(0));
-      int a = v.getAtPointer(0);
-      int b = v.getAtPointer(0, 1);
-      
+      osci.freq(v.getAtPointer(primary));
+      int a = v.getAtPointer(primary);
+      int b = v.getAtPointer(primary, 1);
+
       if (a > b) {
         // Swap
-        osci.freq(v.getAtPointer(0, 1));
-        v.setAtPointer(0, b);
-        v.setAtPointer(0, 1, a);
+        osci.freq(v.getAtPointer(primary, 1));
+        v.setAtPointer(primary, b);
+        v.setAtPointer(primary, a, 1);
       }
 
       primary.index++;
@@ -38,8 +38,8 @@ class BubbleSort implements Algorithm {
       sorted++;
     }
   }
-  
-  void printInfo(){
+
+  void printInfo() {
     text("Remaining Elements: " + str(v.getArraySize() - sorted), 0, 20);
     text("Comparisons: " + str(comparisons), 0, 30);
   }

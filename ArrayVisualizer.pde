@@ -27,18 +27,20 @@ class ArrayVisualizer { //<>//
     minArrVal = minArrayListValue(array);
   }
 
+
+  // <<<<PUBLIC API>>>>
   void withAlgorithm(Algorithm algorithm) {
     this.algorithm = algorithm;
     algorithm.setup(this, osci);
   }
 
   // Getters
-  int getAtPointer(int pointer) {
+  int getAtPointer(Pointer pointer) {
     return getAtPointer(pointer, 0);
   }
 
-  int getAtPointer(int pointer, int offset) {
-    return array.get(pointers.get(pointer).index + offset);
+  int getAtPointer(Pointer pointer, int offset) {
+    return array.get(pointer.index + offset);
   }
 
   int getArraySize() {
@@ -46,22 +48,22 @@ class ArrayVisualizer { //<>//
   }
 
   // Setters
-  int setAtPointer(int pointer, int value) {
-    return setAtPointer(pointer, 0, value);
+  int setAtPointer(Pointer pointer, int value) {
+    return setAtPointer(pointer, value, 0);
   }
 
-  int setAtPointer(int pointer, int offset, int value) {
-    return array.set(pointers.get(pointer).index + offset, value);
+  int setAtPointer(Pointer pointer, int value, int offset) {
+    return array.set(pointer.index + offset, value);
   }
 
   void addPointer(Pointer pointer) {
     pointers.add(pointer);
   }
 
-  void swapElements(int indexA, int indexB) {
-    int a = array.get(indexA); // Save arr[A]
-    array.set(indexA, array.get(indexB)); // Set arr[A] = b
-    array.set(indexB, a);
+  void swapElements(Pointer a, Pointer b) {
+    int aux = array.get(a.index); // Save arr[A]
+    array.set(a.index, array.get(b.index)); // Set arr[A] = b
+    array.set(b.index, aux);
   }
 
   void stop() {

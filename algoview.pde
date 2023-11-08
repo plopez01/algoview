@@ -45,7 +45,7 @@ void draw() {
 }
 
 void mouseWheel(MouseEvent event){
-  targetFrameRate += event.getCount()*2;
+  targetFrameRate -= event.getCount()*2;
   if (targetFrameRate < 1) targetFrameRate = 1;
   frameRate(targetFrameRate);
 }

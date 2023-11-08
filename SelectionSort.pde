@@ -18,7 +18,7 @@ class SelectionSort implements Algorithm {
     v.addPointer(minValPtr);
     
     secondary.index = primary.index;
-    minVal = v.getAtPointer(0);
+    minVal = v.getAtPointer(primary);
     minPos = primary.index;
   }
   
@@ -33,7 +33,7 @@ class SelectionSort implements Algorithm {
     if (secondary.index < v.getArraySize()) {
       
       // Search for smallest value
-      int secondaryVal = v.getAtPointer(1);
+      int secondaryVal = v.getAtPointer(secondary);
       osci.freq(secondaryVal);
       
       if (secondaryVal < minVal) {
@@ -45,15 +45,16 @@ class SelectionSort implements Algorithm {
       secondary.index++;
     } else {
       // Swap elements
-      osci.freq(v.getAtPointer(0));
-      v.swapElements(primary.index, minPos);
+      osci.freq(v.getAtPointer(primary));
+      v.swapElements(primary, minValPtr);
       
       primary.index++;
       
       // Set new min value and advance secondary to save one comparison with ouselves
       secondary.index = primary.index;
-      minVal = v.getAtPointer(1);
+      minVal = v.getAtPointer(secondary);
       minPos = secondary.index;
+      minValPtr.index = minPos;
       
       secondary.index++;
     }
