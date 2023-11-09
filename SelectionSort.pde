@@ -6,8 +6,8 @@ class SelectionSort implements Algorithm {
   ArrayVisualizer v;
   SqrOsc osci;
   Pointer primary = new Pointer(0, color(255, 0, 0));
-  Pointer secondary = new Pointer(1, color(0, 0, 255));
-  Pointer minValPtr = new Pointer(-1, color(0, 138, 255));
+  Pointer secondary = new Pointer(0, color(0, 0, 255));
+  Pointer minValPtr = new Pointer(0, color(0, 138, 255));
   
   void setup(ArrayVisualizer v, SqrOsc osci) {
     this.v = v;
@@ -17,7 +17,6 @@ class SelectionSort implements Algorithm {
     v.addPointer(secondary);
     v.addPointer(minValPtr);
     
-    secondary.index = primary.index;
     minVal = v.getAtPointer(primary);
     minPos = primary.index;
   }
@@ -46,7 +45,7 @@ class SelectionSort implements Algorithm {
     } else {
       // Swap elements
       osci.freq(v.getAtPointer(primary));
-      v.swapElements(primary, minValPtr);
+      v.swapElements(primary, minValPtr); //<>//
       
       primary.index++;
       
