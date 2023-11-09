@@ -73,10 +73,12 @@ class ArrayVisualizer { //<>//
     algorithm = null;
   }
 
-  void draw() {
+  void runAlgorithm(){
     // Run algo
     if (algorithm != null) algorithm.iterate();
+  }
 
+  void draw() {
     // End check
     if (mode == 1 && internalPtr.index < array.size()) {
       osci.freq(array.get(internalPtr.index));

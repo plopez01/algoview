@@ -16,15 +16,14 @@ void setup() {
   frameRate(targetFrameRate);
   background(0);
   noStroke();
-
-  genRandomList(test, 100, 100, 400); //<>//
+  genRandomList(test, 6, 100, 400); //<>//
 
   osci = new SqrOsc(this);
   osci.amp(0); //caca in begginging
   osci.play();
   
   visualizer = new ArrayVisualizer(0, 0, width, height, test, osci);
-  visualizer.withAlgorithm(new SelectionSort());
+  visualizer.withAlgorithm(new BogoSort());
   visualizer.draw();
   
   String startText = "PRESS ANY KEY TO START";
@@ -39,6 +38,7 @@ void draw() {
   }
   background(0);
   
+  visualizer.runAlgorithm();
   visualizer.draw();
   
   text("FPS: " + round(frameRate) + " (" + targetFrameRate + ")", 0, 10);

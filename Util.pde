@@ -1,3 +1,11 @@
+int fact(int n){
+  int val = 1;
+  for (int i = 1; i < n; i++){
+    val *= (i+1);
+  }
+  return val;
+}
+
 void genRandomList(ArrayList<Integer> arr, int amount, int min, int max){
   for (int i = 0; i < amount; i++) {
     arr.add(round(random(min, max)));
