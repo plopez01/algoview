@@ -1,10 +1,10 @@
 class InsertionSort implements Algorithm {
-  
   Pointer primary = new Pointer(0, color(255, 0, 0));
   Pointer secondary = new Pointer(0, color(0, 0, 255));
   Pointer aux = new Pointer(0, color(0, 0, 255));
   ArrayVisualizer v;
   SqrOsc osci;
+
   void setup(ArrayVisualizer v, SqrOsc osc){
     this.v = v;
     this.osci = osc;
@@ -26,19 +26,16 @@ class InsertionSort implements Algorithm {
       osci.freq(v.getAtPointer(aux));
       v.swapElements(secondary, aux);
       secondary.index--;
-    }
-    
-    else {
+    } else {
       primary.index++;
       secondary.index = primary.index;
-      
     }
     
   }
   
   void printInfo(){
-    text("I eat cheeseburgers sometimes", 0, 30);
-    text(str(primary.index), 0, 90);
-    text(str(secondary.index), 0, 70);
+    text("I eat cheeseburgers sometimes", 0, 20);
+    text("Primary: " + primary.index, 0, 30);
+    text("Secondary: " + secondary.index, 0, 40);
   }
 }
