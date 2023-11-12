@@ -15,6 +15,7 @@ ArrayList<Integer> genRandomList(int amount, int min, int max) {
   random.setSeed(seed);
   return random
     .ints(min, max, amount)
+    .boxed()
     .collect(Collectors.toList());
 }
 
