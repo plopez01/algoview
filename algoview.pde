@@ -1,7 +1,7 @@
 import java.util.*; //<>// //<>//
 import processing.sound.*;
 
-ArrayList<Integer> test = new ArrayList<Integer>();
+List<Integer> test;
 
 ArrayVisualizer visualizer;
 
@@ -16,7 +16,7 @@ void setup() {
   frameRate(targetFrameRate);
   background(0);
   noStroke();
-  genRandomList(test, 100, 100, 400);
+  test = genRandomList(100, 100, 400);
 
   osci = new SqrOsc(this);
   osci.amp(0); //caca in begginging
