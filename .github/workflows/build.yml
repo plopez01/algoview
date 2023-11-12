@@ -12,7 +12,15 @@ jobs:
       id: setup-processing
       uses: pr1metine/setup-processing@v2.1.0
 
+    - name: Cache Processing Libraries
+      id: cache-lib
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/sketchbook/libraries
+      
     - name: Download Processing Sound
+      if: ${{steps.cache-lib.outputs.cache-hit != 'true'}}
       run: | 
         wget https://github.com/processing/processing-sound/releases/download/latest/sound.zip 
         mkdir -p ~/sketchbook/libraries
