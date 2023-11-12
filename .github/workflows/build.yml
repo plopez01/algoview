@@ -16,7 +16,7 @@ jobs:
       run: | 
         wget https://github.com/processing/processing-sound/releases/download/latest/sound.zip 
         mkdir -p sketchbook/libraries
-        unzip sound.zip sketchbook/libraries
+        unzip sound.zip -d sketchbook/libraries
     
     - name: Build project
       run: ${{steps.setup-processing.outputs.install-dir}}/processing-java --sketch=$PWD --force --build
