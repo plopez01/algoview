@@ -8,7 +8,7 @@ int fact(int n){
   return val;
 }
 
-ArrayList<Integer> genRandomList(int amount, int min, int max) {
+List<Integer> genRandomList(int amount, int min, int max) {
   Random random = new Random();
   long seed = random.nextLong();
   println("Random seed: " + seed);
@@ -17,26 +17,4 @@ ArrayList<Integer> genRandomList(int amount, int min, int max) {
     .ints(min, max, amount)
     .boxed()
     .collect(Collectors.toList());
-}
-
-Integer maxArrayListValue(ArrayList<Integer> arr){
-  if (arr.size() == 0) return 0;
-  
-  Integer max = arr.get(0);
-  for (int i = 1; i < arr.size(); i++) {
-    if (arr.get(i) > max) max = arr.get(i);
-  }
-  
-  return max;
-}
-
-Integer minArrayListValue(ArrayList<Integer> arr){
-  if (arr.size() == 0) return 0;
-  
-  Integer min = arr.get(0);
-  for (int i = 1; i < arr.size(); i++) {
-    if (arr.get(i) < min) min = arr.get(i);
-  }
-  
-  return min;
 }
