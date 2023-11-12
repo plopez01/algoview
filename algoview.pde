@@ -1,7 +1,7 @@
 import java.util.*; //<>// //<>//
 import processing.sound.*;
 
-ArrayList<Integer> test;
+List<Integer> test;
 
 ArrayVisualizer visualizer;
 
