@@ -1,3 +1,5 @@
+import java.util.stream.*;
+
 int fact(int n){
   int val = 1;
   for (int i = 1; i < n; i++){
@@ -6,10 +8,14 @@ int fact(int n){
   return val;
 }
 
-void genRandomList(ArrayList<Integer> arr, int amount, int min, int max){
-  for (int i = 0; i < amount; i++) {
-    arr.add(round(random(min, max)));
-  }
+void genRandomList(ArrayList<Integer> arr, int amount, int min, int max) {
+  Random random = new Random();
+  long seed = random.nextLong();
+  println("Random seed: " + seed);
+  random.setSeed(seed);
+  random
+    .ints(min, max, amount)
+    .forEach(arr::add);
 }
 
 Integer maxArrayListValue(ArrayList<Integer> arr){
