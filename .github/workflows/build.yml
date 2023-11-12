@@ -1,0 +1,16 @@
+name: Development Builds
+
+on: [push, pull_request]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Processing
+      id: setup-processing
+      uses: pr1metine/setup-processing@v2.1.0
+
+    - name: Build project
+      run: ${{steps.setup-processing.outputs.install-dir}}/processing-java --sketch=$PWD --force --build
