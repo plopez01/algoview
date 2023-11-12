@@ -23,8 +23,8 @@ class ArrayVisualizer { //<>//
     this.osci = osci;
 
     // Me when optimize to one function call WHEN
-    maxArrVal = maxArrayListValue(array);
-    minArrVal = minArrayListValue(array);
+    maxArrVal = Collections.max(array);
+    minArrVal = Collections.min(array);
   }
 
 
