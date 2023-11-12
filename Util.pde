@@ -14,7 +14,7 @@ List<Integer> genRandomList(int amount, int min, int max) {
   println("Random seed: " + seed);
   random.setSeed(seed);
   return random
-    .ints(min, max, amount)
+    .ints(amount, min, max)
     .boxed()
     .collect(Collectors.toList());
 }
