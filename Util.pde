@@ -13,9 +13,9 @@ ArrayList<Integer> genRandomList(int amount, int min, int max) {
   long seed = random.nextLong();
   println("Random seed: " + seed);
   random.setSeed(seed);
-  random
+  return random
     .ints(min, max, amount)
-    .forEach(arr::add);
+    .collect(Collectors.toList());
 }
 
 Integer maxArrayListValue(ArrayList<Integer> arr){
