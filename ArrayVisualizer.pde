@@ -2,7 +2,7 @@ class ArrayVisualizer { //<>//
   int x, y, sizex, sizey;
 
   Algorithm algorithm;
-  ArrayList<Integer> array;
+  List<Integer> array;
 
   ArrayList<Pointer> pointers = new ArrayList<>();
 
@@ -14,7 +14,7 @@ class ArrayVisualizer { //<>//
 
   SqrOsc osci;
   Pointer internalPtr = new Pointer(0, color(0, 255, 0));
-  ArrayVisualizer(int x, int y, int sizex, int sizey, ArrayList<Integer> array, SqrOsc osci) {
+  ArrayVisualizer(int x, int y, int sizex, int sizey, List<Integer> array, SqrOsc osci) {
     this.x = x;
     this.y = y;
     this.sizex = sizex;
