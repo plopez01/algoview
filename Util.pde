@@ -8,7 +8,7 @@ int fact(int n){
   return val;
 }
 
-void genRandomList(ArrayList<Integer> arr, int amount, int min, int max) {
+ArrayList<Integer> genRandomList(int amount, int min, int max) {
   Random random = new Random();
   long seed = random.nextLong();
   println("Random seed: " + seed);
