@@ -12,5 +12,11 @@ jobs:
       id: setup-processing
       uses: pr1metine/setup-processing@v2.1.0
 
+    - name: Download Processing Sound
+      run: | 
+        wget https://github.com/processing/processing-sound/releases/download/latest/sound.zip 
+        mkdir -p sketchbook/libraries
+        unzip sound.zip sketchbook/libraries
+    
     - name: Build project
       run: ${{steps.setup-processing.outputs.install-dir}}/processing-java --sketch=$PWD --force --build
