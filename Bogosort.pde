@@ -39,6 +39,7 @@ class BogoSort implements Algorithm {
         primary.index = 0;
         return;
       }
+      osc.freq(v.getAtPointer(primary));
       primary.index++;
     } else v.stop();
   }
