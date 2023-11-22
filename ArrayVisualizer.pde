@@ -7,8 +7,8 @@ class ArrayVisualizer { //<>//
   ArrayList<Pointer> pointers = new ArrayList<>();
 
   int mode = 0;
-  Integer maxArrVal;
-  Integer minArrVal;
+  int maxArrVal;
+  int minArrVal;
 
   float barWidthPercentage = 0.9;
 
